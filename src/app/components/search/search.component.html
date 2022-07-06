@@ -1,1 +1,8 @@
-<p>search works!</p>
+<div>
+    <form #form="ngForm" [formGroup]="searchForm" (ngSubmit)="getUsers()">
+        <input formControlName="searchInput" type="search" autofocus>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!searchForm.valid" >
+            Search
+        </button>
+    </form>
+</div>
