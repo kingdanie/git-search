@@ -7,6 +7,8 @@ import { ResultsComponent } from './components/results/results.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { AppCommonModule } from './common';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppCommonModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
