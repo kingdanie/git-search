@@ -1,9 +1,16 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+      ReactiveFormsModule,
+      HttpClientModule,
+      ],
       declarations: [
         AppComponent
       ],
@@ -19,13 +26,8 @@ describe('AppComponent', () => {
   it(`should have as title 'gitsearch'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('gitsearch');
+    expect(app.title).toEqual('GitSearch');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('gitsearch app is running!');
-  });
+
 });

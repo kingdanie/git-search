@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { CoreApisService } from 'src/app/services/core-apis.service';
 
 @Component({
@@ -15,6 +16,8 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
   }
+
+  @Input() title!: string;
 
   initForm() {
     this.searchForm = this.fb.group({

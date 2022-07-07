@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
   BehaviorSubject,
-  Subject,
   filter,
   switchMap,
   map,
@@ -26,11 +25,11 @@ export class CoreApisService {
 
   search$ = this.searchSubject$.pipe(
     filter((searchparams) => Boolean(searchparams)),
-    tap(() => this.loadingSearchResult.next(true)),
+    // tap(() => this.loadingSearchResult.next(true)),
     switchMap((searchParams) =>
       this.http
         .get<GitResponse>(
-          `https://api.github.com/earch/users?q=${searchParams} in:login`
+          `https://api.github.com/search/users?q=${searchParams} in:login`
         )
         .pipe(
           // tap((res) => console.log(res)),
@@ -60,15 +59,15 @@ export class CoreApisService {
    * @param data New case search parameters
    */
   updateSearch(data: string): void {
-    this.loadingSearchResult.next(false);
+    // this.loadingSearchResult.next(false);
     this.searchState.next(data);
   }
 
-  /**
-   * Action stream to update the case search param.
-   * @param data New case search parameters
-   */
-  updateLoader(data: boolean): void {
-    this.loadingSearchResult.next(data);
-  }
+  // /**
+  //  * Action stream to update the case search param.
+  //  * @param data New case search parameters
+  //  */
+  // updateLoader(data: boolean): void {
+  //   this.loadingSearchResult.next(data);
+  // }
 }
