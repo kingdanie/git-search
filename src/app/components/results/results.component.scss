@@ -1,6 +1,23 @@
 .full-width-table {
     width: 100%;
   }
+  
+
+.full-width-table tr:nth-child(even) {
+    background-color:  #E8EBED;
+  }
+
+
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .mat-row:hover .mat-cell {
+    background-color: #befcd6;
+  }
+
 
   @media screen and (max-width: 992px) {
     .full-width-table {
