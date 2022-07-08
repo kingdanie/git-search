@@ -11,7 +11,7 @@
     <div>
         <form #form="ngForm" [formGroup]="searchForm" (ngSubmit)="getUsers()">
             <div class="relative flex items-center">
-            <input class="shadow-sm focus:border-primary block w-full p-2 text-xs text-green-800 rounded-md" formControlName="searchInput" type="search" placeholder="Github Username" autofocus>
+            <input class="shadow-sm border-gray-200 focus:border-gray-500 block w-full p-2 text-xs text-green-800 rounded-md" formControlName="searchInput" type="search" placeholder="Github Username" autofocus>
             <!-- <button mat-raised-button color="accent" class="text-white" type="submit" [disabled]="!searchForm.valid" >
                 Search
             </button> -->

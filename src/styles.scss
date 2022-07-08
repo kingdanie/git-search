@@ -46,6 +46,8 @@ $era-theme: mat.define-light-theme(
 /* You can add global styles to this file, and also import other style files */
 
 $primary-color: #{mat.get-color-from-palette($era-primary)};
+$accent-color: #{mat.get-color-from-palette($era-accent)};
+
 html,
 body {
   height: 100%;
@@ -64,8 +66,13 @@ body {
     color: #ffffff;
   }
 
+  .bg-primary-light {
+    background-color: $primary-color;
+  }
+
+
   .bg-gray {
-    background-color: #e5e5e5;
+    background-color: #fcfadc;
   }
 
   .border-primary {
@@ -79,4 +86,8 @@ body {
   .text-warn {
     color: #{mat.get-color-from-palette($era-warn)};
   }
+
+    .mat-row:hover .mat-cell {
+      background-color: #c69d608e;
+    }
 }

@@ -9,7 +9,6 @@ import {
   catchError,
   EMPTY,
   finalize,
-  tap,
 } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -34,7 +33,6 @@ export class CoreApisService {
         .pipe(
           // tap((res) => console.log(res)),
           filter((res) => Boolean(res)),
-          // tap((res) =>  {console.log(res.items); return res.items}),
           map((res) => {
             return res.items;
           }),
