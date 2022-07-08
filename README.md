@@ -3,7 +3,7 @@
 A search application that queries for github users via their username. It makes calls to the github API `https://api.github.com/search/users?q={login} in:login`.
 
 
-TechStack:  Angular 13 | Angular Material | Tailwind CSS.
+TechStack:  Angular 13 | TypeScipt| Angular Material | Tailwind CSS.
 
 ![Screenshot](gitsearch.png)
 
