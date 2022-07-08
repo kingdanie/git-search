@@ -11,7 +11,10 @@ import { CoreApisService } from 'src/app/services/core-apis.service';
 export class SearchComponent implements OnInit {
   searchForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private searchService: CoreApisService) {}
+  constructor(
+    private fb: FormBuilder, 
+    private searchService: CoreApisService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -19,12 +22,14 @@ export class SearchComponent implements OnInit {
 
   @Input() title!: string;
 
+  //initializing form inputs controls
   initForm() {
     this.searchForm = this.fb.group({
       searchInput: ['', Validators.required],
     });
   }
 
+  //retrieve value of input
   get searchInput() {
     return this.searchForm.get('searchInput');
   }

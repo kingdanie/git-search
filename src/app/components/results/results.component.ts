@@ -11,26 +11,33 @@ import { CoreApisService } from 'src/app/services/core-apis.service';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss'],
 })
-export class ResultsComponent implements OnInit  {
+export class ResultsComponent implements OnInit {
   showSearch: boolean = false;
 
+  //loader behaviour subject
   loading$ = this.searchService.loadingSearchResult;
+
+  /*
+    retrieve data from api serivce 
+  */
   result$ = this.searchService.search$.pipe(
     tap((result) => {
       // if(result.length <= 0) {
       //   alert("no result");
       // }
+
       // reset to pagination first page on each new search
       if (this.UserSource) {
         this.UserSource.paginator?.firstPage();
       }
+
       //assign data from api response as mat table source
       this.UserSource = new MatTableDataSource<GithubUsers>(result);
+
       // assign pagination and sorting
       this.UserSource.paginator = this.paginator;
       this.UserSource.sort = this.sort;
       // this.searchService.updateLoader(true);
-
     })
   );
 
@@ -43,12 +50,10 @@ export class ResultsComponent implements OnInit  {
 
   constructor(private searchService: CoreApisService) {}
 
-
   ngOnInit(): void {
+    /*
+    retrives data from api on first app load
+    */
     this.searchService.updateSearch(' ');
-    
   }
-
-  
-
 }

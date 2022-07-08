@@ -1,3 +1,15 @@
 .svg-img{
     fill: white
 }
+
+#app-submit {
+    color: white;
+    background-color: black;
+    font-size: 8px;
+}
+
+
+#app-submit:disabled {
+    color: white;
+    background-color: rgba(128, 128, 128, 0.821);
+}
