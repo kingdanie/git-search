@@ -1,7 +1,9 @@
+import { GithubUsers } from 'src/app/models/models';
 import { TestBed } from '@angular/core/testing';
 
 import { CoreApisService } from './core-apis.service';
-import { MatSnackBarModule } from '@angular/material/snack-bar';import {HttpClientModule} from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {HttpClientModule} from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { mockUsers } from './../dummyData/dummyData'
 
@@ -19,7 +21,7 @@ describe('CoreApisService', () => {
     service = TestBed.inject(CoreApisService);
   });
 
-  it('should be created', () => {
+  it('Api service should be created', () => {
     expect(service).toBeTruthy();
   });
 
@@ -28,8 +30,8 @@ describe('CoreApisService', () => {
   //   providers: [CoreApisService]
   // }));
 
-   it('should be created', () => {
-    const service: CoreApisService = TestBed.get(CoreApisService);
+   it('Service should be injectable', () => {
+    const service: CoreApisService = TestBed.inject(CoreApisService);
     expect(service).toBeTruthy();
    });
 
@@ -46,6 +48,17 @@ describe('CoreApisService', () => {
 
     req?.flush(mockUsers);
   });
+
+
+  it('#LoadingBehaviourSubject should return boolean value',
+  (done: DoneFn) => {
+     service.loadingSearchResult.subscribe((value: boolean) => {
+     expect(value).toBeInstanceOf(Boolean);
+     done();
+  });
+  });
+
+
 
 
 });
